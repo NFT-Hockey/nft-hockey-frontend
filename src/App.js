@@ -2,8 +2,9 @@ import React from 'react';
 import Navigation from "./components/Navigation";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import * as ROUTES from './constants/routes';
-import Marketplace from "./components/marketplace";
 import styled from "styled-components";
+import Packs from "./components/marketplace/Packs";
+import Players from "./components/marketplace/Players";
 
 const AppStyled = styled.div`
   min-height: 100vh;
@@ -18,8 +19,10 @@ function App() {
       <BrowserRouter>
       <Navigation />
         <Routes>
-          <Route exact path={ROUTES.ROOT} element={<Marketplace />} />
-          <Route path={ROUTES.MARKETPLACE} element={<Marketplace />} />
+          <Route exact path={ROUTES.ROOT} element={<Players />} />
+            <Route path={ROUTES.MARKETPLACE} element={<Players />} />
+            <Route path={ROUTES.PLAYERS_MARKETPLACE} element={<Players />} />
+            <Route path={ROUTES.PACKS_MARKETPLACE} element={<Packs />} />
         </Routes>
       </BrowserRouter>
     </AppStyled>

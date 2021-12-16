@@ -11,7 +11,7 @@ const NavigationStyled = styled.div`
     border-bottom: solid 1px #EBEBEB;
   }
   .bottom-tab-nav {
-    border-top: solid 1px #dcdcdc;
+    border: none;
   }
   .nav-link svg,
   .bottom-nav-link svg {
@@ -40,31 +40,31 @@ const tabs = [
 
 export default function Navigation() {
     return <NavigationStyled>
-        <Navbar className='navbar-expand-lg navbar-light d-none d-md-block sticky-top'>
+        <Navbar className='navbar-expand-lg d-none d-md-block sticky-top' bg='dark' variant='dark'>
             <Container fluid className="justify-content-center">
-                <NavLink to={ROUTES.ROOT} className='nav-link'>
+                <NavLink activeClassName='active' to={ROUTES.ROOT} className='nav-link'>
                     <NavbarBrandStyled>NFT based fantasy hockey managers game</NavbarBrandStyled>
                 </NavLink>
                 <Nav className='ml-auto'>
                     <NavItem className="m-3">
-                        <NavLink to={ROUTES.ROOT} className='nav-link'>
-                            <FontAwesomeIcon icon={faHockeyPuck} size="2x" />
+                        <NavLink to={ROUTES.ROOT} className='nav-link' activeClassName='active'>
+                            <FontAwesomeIcon icon={faHockeyPuck} size="2x" color='red' />
                         </NavLink>
                     </NavItem>
                     <NavItem className="m-3">
-                        <NavLink to={ROUTES.MARKETPLACE} className='nav-link'>
+                        <NavLink to={ROUTES.MARKETPLACE} className='nav-link' activeClassName='active'>
                             <FontAwesomeIcon icon={faStore} size="2x" />
                         </NavLink>
                     </NavItem>
                     <NavItem className="m-3">
-                        <NavLink to={ROUTES.MARKETPLACE} className='nav-link'>
+                        <NavLink to={ROUTES.MARKETPLACE} className='nav-link' activeClassName='active'>
                             <FontAwesomeIcon icon={faBriefcase} size="2x" />
                         </NavLink>
                     </NavItem>
                 </Nav>
             </Container>
         </Navbar>
-        <Navbar className='fixed-bottom navbar-light d-block d-md-none bottom-tab-nav'>
+        <Navbar className='fixed-bottom d-block d-md-none bottom-tab-nav' bg='dark' variant='dark'>
             <Nav className='w-100'>
                 <div className='d-flex flex-row justify-content-around w-100'>
                     {
