@@ -43,7 +43,7 @@ export default function Navigation() {
         <Navbar className='navbar-expand-lg d-none d-md-block sticky-top' bg='dark' variant='dark'>
             <Container fluid className="justify-content-center">
                 <NavLink activeClassName='active' to={ROUTES.ROOT} className='nav-link'>
-                    <NavbarBrandStyled>NFT based fantasy hockey managers game</NavbarBrandStyled>
+                    <NavbarBrandStyled><b>NFT HOCKEY</b></NavbarBrandStyled>
                 </NavLink>
                 <Nav className='ml-auto'>
                     <NavItem className="m-3">
@@ -52,12 +52,12 @@ export default function Navigation() {
                         </NavLink>
                     </NavItem>
                     <NavItem className="m-3">
-                        <NavLink to={ROUTES.MARKETPLACE} className='nav-link' activeClassName='active'>
+                        <NavLink to={ROUTES.ROOT} className='nav-link' activeClassName='active'>
                             <FontAwesomeIcon icon={faStore} size="2x" />
                         </NavLink>
                     </NavItem>
                     <NavItem className="m-3">
-                        <NavLink to={ROUTES.MARKETPLACE} className='nav-link' activeClassName='active'>
+                        <NavLink to={ROUTES.ROOT} className='nav-link' activeClassName='active'>
                             <FontAwesomeIcon icon={faBriefcase} size="2x" />
                         </NavLink>
                     </NavItem>

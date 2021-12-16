@@ -6,7 +6,7 @@ export default function Players() {
     return <>
         <MarketplacePageSelector selectedPage='players' />
     <Container>
-        players
+        <h1>Marketplace</h1>
     </Container>
     </>
 }
