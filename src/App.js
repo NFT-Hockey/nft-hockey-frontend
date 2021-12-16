@@ -6,6 +6,7 @@ import styled from "styled-components";
 import BuyPacks from "./components/marketplace/BuyPacks";
 import BuyPlayers from "./components/marketplace/BuyPlayers";
 import SellPlayers from "./components/marketplace/SellPlayers";
+import Login from "./components/auth/Login";
 
 const AppStyled = styled.div`
   min-height: 100vh;
@@ -20,7 +21,7 @@ function App() {
       <BrowserRouter>
       <Navigation />
         <Routes>
-          <Route exact path={ROUTES.ROOT} element={<BuyPlayers />} />
+          <Route exact path={ROUTES.ROOT} element={<Login />} />
             <Route path={ROUTES.MARKETPLACE} element={<BuyPlayers />} />
             <Route path={ROUTES.MARKETPLACE_BUY_PLAYERS} element={<BuyPlayers />} />
             <Route path={ROUTES.MARKETPLACE_BUY_PACKS} element={<BuyPacks />} />
