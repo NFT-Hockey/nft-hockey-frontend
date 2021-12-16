@@ -3,6 +3,7 @@ import {Container, InputGroup, FormControl, Row, Col, Card, Button, Image} from 
 import MarketplacePageSelector from "./MarketplacePageSelector";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {ReactComponent as NearLogo} from "../../assets/near-logo.svg";
 
 export default function BuyPacks() {
     return <>
@@ -30,75 +31,7 @@ export default function BuyPacks() {
                             <Col className='text-center col-auto mt-3'>
                                 <Card.Title>Pack name</Card.Title>
                                 <Card.Text className='text-start'>Pack info</Card.Text>
-                                <Card.Text className='text-center'><b>$100 / 10 N</b></Card.Text>
-                                <Button className='text-center rounded-pill' variant="dark">Buy a pack</Button>
-                            </Col>
-                        </Row>
-                    </Card.Body>
-                </Card>
-            </Col>
-            <Col className='col-12 col-md-4 mb-3'>
-                <Card>
-                    <Card.Body>
-                        <Row>
-                            <Col className='text-center col-sm-12 col-md-auto'>
-                                <Image rounded src='/img/player.jpg' alt='player' height='250px'/>
-                            </Col>
-                            <Col className='text-center col-auto mt-3'>
-                                <Card.Title>Pack name</Card.Title>
-                                <Card.Text className='text-start'>Pack info</Card.Text>
-                                <Card.Text className='text-center'><b>$100 / 10 N</b></Card.Text>
-                                <Button className='text-center rounded-pill' variant="dark">Buy a pack</Button>
-                            </Col>
-                        </Row>
-                    </Card.Body>
-                </Card>
-            </Col>
-            <Col className='col-12 col-md-4 mb-3'>
-                <Card>
-                    <Card.Body>
-                        <Row>
-                            <Col className='text-center col-sm-12 col-md-auto'>
-                                <Image rounded src='/img/player.jpg' alt='player' height='250px'/>
-                            </Col>
-                            <Col className='text-center col-auto mt-3'>
-                                <Card.Title>Pack name</Card.Title>
-                                <Card.Text className='text-start'>Pack info</Card.Text>
-                                <Card.Text className='text-center'><b>$100 / 10 N</b></Card.Text>
-                                <Button className='text-center rounded-pill' variant="dark">Buy a pack</Button>
-                            </Col>
-                        </Row>
-                    </Card.Body>
-                </Card>
-            </Col>
-            <Col className='col-12 col-md-4 mb-3'>
-                <Card>
-                    <Card.Body>
-                        <Row>
-                            <Col className='text-center col-sm-12 col-md-auto'>
-                                <Image rounded src='/img/player.jpg' alt='player' height='250px'/>
-                            </Col>
-                            <Col className='text-center col-auto mt-3'>
-                                <Card.Title>Pack name</Card.Title>
-                                <Card.Text className='text-start'>Pack info</Card.Text>
-                                <Card.Text className='text-center'><b>$100 / 10 N</b></Card.Text>
-                                <Button className='text-center rounded-pill' variant="dark">Buy a pack</Button>
-                            </Col>
-                        </Row>
-                    </Card.Body>
-                </Card>
-            </Col>
-            <Col className='col-12 col-md-4 mb-3'>
-                <Card>
-                    <Card.Body>
-                        <Row>
-                            <Col className='text-center col-sm-12 col-md-auto'>
-                                <Image rounded src='/img/player.jpg' alt='player' height='250px'/>
-                            </Col>
-                            <Col className='text-center col-auto mt-3'>
-                                <Card.Title>Pack name</Card.Title>
-                                <Card.Text className='text-start'>Pack info</Card.Text>
-                                <Card.Text className='text-center'><b>$100 / 10 N</b></Card.Text>
+                                <h4>$100 / <NearLogo height='15' /> 10</h4>
                                 <Button className='text-center rounded-pill' variant="dark">Buy a pack</Button>
                             </Col>
                         </Row>

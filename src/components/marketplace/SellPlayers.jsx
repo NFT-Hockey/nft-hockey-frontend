@@ -3,6 +3,7 @@ import MarketplacePageSelector from "./MarketplacePageSelector";
 import {Button, Card, Col, Container, FormControl, Image, InputGroup, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {ReactComponent as NearLogo} from "../../assets/near-logo.svg";
 
 export default function SellPlayers() {
     return <>
@@ -33,7 +34,7 @@ export default function SellPlayers() {
                                             <Card.Title>Kostiantyn Ostapenko</Card.Title>
                                         </Col>
                                         <Col className='col-auto'>
-                                            <Card.Text className='text-center'><b>$100 / 10 N</b></Card.Text>
+                                            <h4>$100 / <NearLogo height='15' /> 10</h4>
                                         </Col>
                                     </Row>
                                     <Card.Text className='text-start'>99/33</Card.Text>

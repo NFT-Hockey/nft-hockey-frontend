@@ -1,11 +1,11 @@
 import React from "react";
-import {Container, Row, Col, Navbar, Nav, NavItem, Badge} from "react-bootstrap";
+import {Container, Navbar, Nav, NavItem} from "react-bootstrap";
 import styled from "styled-components";
 import * as ROUTES from './../constants/routes';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHockeyPuck, faBriefcase, faStore, faStar, faCoins} from "@fortawesome/free-solid-svg-icons";
 import {NavLink} from "react-router-dom";
-import {ReactComponent as NearLogo} from "./near-logo.svg";
+import {ReactComponent as NearLogo} from "../assets/near-logo.svg";
 
 const NavigationStyled = styled.div`
   .navbar {
