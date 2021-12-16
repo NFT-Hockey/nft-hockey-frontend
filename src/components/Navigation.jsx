@@ -1,10 +1,11 @@
 import React from "react";
-import {Container, Navbar, Nav, NavItem} from "react-bootstrap";
+import {Container, Row, Col, Navbar, Nav, NavItem, Badge} from "react-bootstrap";
 import styled from "styled-components";
 import * as ROUTES from './../constants/routes';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faHockeyPuck, faBriefcase, faStore} from "@fortawesome/free-solid-svg-icons";
+import {faHockeyPuck, faBriefcase, faStore, faStar, faCoins} from "@fortawesome/free-solid-svg-icons";
 import {NavLink} from "react-router-dom";
+import {ReactComponent as NearLogo} from "./near-logo.svg";
 
 const NavigationStyled = styled.div`
   .navbar {
@@ -42,6 +43,9 @@ export default function Navigation() {
     return <NavigationStyled>
         <Navbar className='navbar-expand-lg d-none d-md-block sticky-top' bg='dark' variant='dark'>
             <Container fluid className="justify-content-center">
+                <Navbar.Brand href={ROUTES.ROOT}>
+                    <img src='/img/nft-hockey-logo.png' alt='logo' width="60"/>
+                </Navbar.Brand>
                 <NavLink activeClassName='active' to={ROUTES.ROOT} className='nav-link'>
                     <NavbarBrandStyled><b>NFT HOCKEY</b></NavbarBrandStyled>
                 </NavLink>
@@ -59,6 +63,21 @@ export default function Navigation() {
                     <NavItem className="m-3">
                         <NavLink to={ROUTES.ROOT} className='nav-link' activeClassName='active'>
                             <FontAwesomeIcon icon={faBriefcase} size="2x" />
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='#' className='nav-link' activeClassName='active'>
+                        <h4 className='text-light mt-3'><FontAwesomeIcon icon={faStar} className='text-warning' /> 200</h4>
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='#' className='nav-link' activeClassName='active'>
+                        <h4 className='mt-3'><NearLogo fill='#FFC107' height='25' /> 8</h4>
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='#' className='nav-link' activeClassName='active'>
+                        <h4 className='text-light mt-3'><FontAwesomeIcon icon={faCoins}  className='text-warning' /> 813</h4>
                         </NavLink>
                     </NavItem>
                 </Nav>
