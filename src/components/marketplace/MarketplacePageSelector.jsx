@@ -17,12 +17,16 @@ export default function MarketplacePageSelector(props) {
 
     return <StyledBtnGroup>
         <BtnGroupBtn
-        onClick={()=>navigate(ROUTES.PACKS_MARKETPLACE)}
-        variant={`dark${props.selectedPage === 'packs' ? '' : '-outline'}`}
-        >Packs</BtnGroupBtn>
+        onClick={()=>navigate(ROUTES.MARKETPLACE_BUY_PACKS)}
+        variant={`dark${props.selectedPage === 'buy-packs' ? '' : '-outline'}`}
+        >Buy packs</BtnGroupBtn>
         <BtnGroupBtn
-        onClick={()=>navigate(ROUTES.PLAYERS_MARKETPLACE)}
-        variant={`dark${props.selectedPage === 'players' ? '' : '-outline'}`}
-        >Players</BtnGroupBtn>
+        onClick={()=>navigate(ROUTES.MARKETPLACE_BUY_PLAYERS)}
+        variant={`dark${props.selectedPage === 'buy-players' ? '' : '-outline'}`}
+        >Buy players</BtnGroupBtn>
+        <BtnGroupBtn
+            onClick={()=>navigate(ROUTES.MARKETPLACE_SELL_PLAYERS)}
+            variant={`dark${props.selectedPage === 'sell-players' ? '' : '-outline'}`}
+        >Sell players</BtnGroupBtn>
     </StyledBtnGroup>
 }

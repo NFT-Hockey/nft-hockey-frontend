@@ -1,4 +1,5 @@
 export const ROOT = '/';
 export const MARKETPLACE = '/marketplace';
-export const PACKS_MARKETPLACE = `${MARKETPLACE}/packs`;
-export const PLAYERS_MARKETPLACE = `${MARKETPLACE}/players`;
+export const MARKETPLACE_BUY_PACKS = `${MARKETPLACE}/buy-packs`;
+export const MARKETPLACE_BUY_PLAYERS = `${MARKETPLACE}/buy-players`;
+export const MARKETPLACE_SELL_PLAYERS = `${MARKETPLACE}/sell-players`
