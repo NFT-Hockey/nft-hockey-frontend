@@ -18,6 +18,11 @@ const NavigationStyled = styled.div`
   .bottom-nav-link svg {
     color: #55575b;
   }
+  
+  .top-nav-link {
+    color: white;
+    text-decoration: none;
+  }
 `
 
 const NavbarBrandStyled = styled(Navbar.Brand)`
@@ -82,6 +87,27 @@ export default function Navigation() {
                     </NavItem>
                 </Nav>
             </Container>
+        </Navbar>
+        <Navbar className='sticky-top d-block d-md-none' bg='dark' variant='dark'>
+            <Nav className='w-100'>
+                <div className="d-flex flex-row justify-content-around w-100">
+                    <NavItem>
+                        <NavLink to='#' className='top-nav-link' activeClassName='active'>
+                            <FontAwesomeIcon icon={faStar} className='text-warning' /> 200
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='#' className='top-nav-link' activeClassName='active'>
+                            <NearLogo fill='#FFC107' height='18' /> 8
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='#' className='top-nav-link' activeClassName='active'>
+                            <FontAwesomeIcon icon={faCoins} className='text-warning' /> 813
+                        </NavLink>
+                    </NavItem>
+                </div>
+            </Nav>
         </Navbar>
         <Navbar className='fixed-bottom d-block d-md-none bottom-tab-nav' bg='dark' variant='dark'>
             <Nav className='w-100'>
