@@ -12,7 +12,7 @@ export default function BuyPlayer() {
         </Row>
         <Row>
             <Col className='col-12 col-sm-12 col-lg-5 text-center'>
-                <img src='/img/player.jpg' alt='Player' width='300px'/>
+                <img src='/img/player.png' alt='Player' width='300px'/>
             </Col>
             <Col className='col-12 col-sm-12 col-lg-7'>
                 <h1>Konstiantyn Ostapenko</h1>

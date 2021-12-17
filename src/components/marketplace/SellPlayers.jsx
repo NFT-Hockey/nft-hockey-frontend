@@ -29,7 +29,7 @@ export default function SellPlayers() {
                         <Card.Body>
                             <Row className='w-100 m-0'>
                                 <Col className='text-center col-sm-12 col-md-auto'>
-                                    <Image rounded src='/img/player.jpg' alt='player' height='185px' width='153px'/>
+                                    <Image rounded src='/img/player.png' alt='player' height='185px' width='153px'/>
                                 </Col>
                                 <Col className='text-center col-auto col-md-8 mt-3 p-0'>
                                     <Row className='justify-content-between'>

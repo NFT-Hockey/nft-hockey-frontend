@@ -29,7 +29,7 @@ export default function BuyPacks() {
                     <Card.Body>
                         <Row>
                             <Col className='text-center col-sm-12 col-md-auto'>
-                                <Image rounded src='/img/player.jpg' alt='player' height='250px'/>
+                                <Image rounded src='/img/player.png' alt='player' height='250px'/>
                             </Col>
                             <Col className='text-center col-auto mt-3'>
                                 <Card.Title>Pack name</Card.Title>
