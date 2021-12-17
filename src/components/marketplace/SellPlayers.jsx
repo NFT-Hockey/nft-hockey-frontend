@@ -3,9 +3,12 @@ import MarketplacePageSelector from "./MarketplacePageSelector";
 import {Button, Card, Col, Container, FormControl, Image, InputGroup, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
-import {ReactComponent as NearLogo} from "../../assets/near-logo.svg";
+import DoublePrice from "./DoublePrice";
+import {useNavigate} from "react-router-dom";
 
 export default function SellPlayers() {
+    const navigate = useNavigate();
+
     return <>
         <MarketplacePageSelector selectedPage='sell-players' />
         <Container>
@@ -34,11 +37,13 @@ export default function SellPlayers() {
                                             <Card.Title>Kostiantyn Ostapenko</Card.Title>
                                         </Col>
                                         <Col className='col-auto'>
-                                            <h4>$100 / <NearLogo height='15' /> 10</h4>
+                                            <DoublePrice dollar={100} near={10} />
                                         </Col>
                                     </Row>
                                     <Card.Text className='text-start'>99/33</Card.Text>
-                                    <Button className='text-center rounded-pill' variant="dark">Sell a player</Button>
+                                    <Button className='text-center rounded-pill' variant="dark"
+                                            onClick={()=>navigate('/marketplace/sell-players/3')}
+                                    >Sell a player</Button>
                                 </Col>
                             </Row>
                         </Card.Body>
