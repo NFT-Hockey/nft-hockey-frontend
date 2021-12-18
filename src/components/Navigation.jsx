@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Container, Navbar, Nav, NavItem, Button} from "react-bootstrap";
 import styled from "styled-components";
 import * as ROUTES from './../constants/routes';
@@ -8,6 +8,8 @@ import {NavLink} from "react-router-dom";
 import {ReactComponent as NearLogo} from "../assets/near-logo.svg";
 import {useDispatch} from "react-redux";
 import {signOutAsync} from "../features/counter/counterSlice";
+import {config} from "../app/near";
+import {connect, WalletConnection, utils} from "near-api-js";
 
 const NavigationStyled = styled.div`
   .navbar {
@@ -47,7 +49,20 @@ const tabs = [
 ]
 
 export default function Navigation() {
+    const [balance, setBalance] = useState('');
     const dispatch = useDispatch();
+
+    useEffect(()=> {
+        connect(config).then(near => {
+            let wallet = new WalletConnection(near);
+            let walletAccountId = wallet.getAccountId();
+            near.account(walletAccountId).then(account => {
+                account.getAccountBalance().then(_balance => {
+                    setBalance(utils.format.formatNearAmount(_balance.available).slice(0, -14));
+                })
+            })
+        });
+    }, []);
 
     return <NavigationStyled>
         <Navbar className='navbar-expand-lg d-none d-md-block sticky-top' bg='dark' variant='dark'>
@@ -81,7 +96,7 @@ export default function Navigation() {
                     </NavItem>
                     <NavItem>
                         <NavLink to='#' className='nav-link' activeClassName='active'>
-                        <h4 className='mt-3'><NearLogo fill='#FFC107' height='25' /> 8</h4>
+                        <h4 className='mt-3'><NearLogo fill='#FFC107' height='25' /> {balance}</h4>
                         </NavLink>
                     </NavItem>
                     <NavItem>
