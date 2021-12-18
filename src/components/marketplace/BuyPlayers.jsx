@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Card, Col, Container, FormControl, Image, InputGroup, Row} from "react-bootstrap";
 import MarketplacePageSelector from "./MarketplacePageSelector";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -11,6 +11,7 @@ import * as nearAPI from "near-api-js";
 
 export default function BuyPlayers() {
     const navigate = useNavigate();
+    const [cardsResponse, setCardsResponse] = useState([]);
 
     useEffect(()=> {
         connect(config).then(near => {
@@ -18,17 +19,18 @@ export default function BuyPlayers() {
 
             const marketplaceContract = new nearAPI.Contract(
                 wallet.account(), // the account object that is connecting
-                "marketplace.uht-hockey.testnet",
+                "nft_storage.uht-hockey.testnet",
                 {
                     // name of contract you're connecting to
-                    viewMethods: ["get_sales_by_nft_contract_id"], // view methods do not change state but usually return a value
+                    viewMethods: ["nft_tokens_for_owner"], // view methods do not change state but usually return a value
                     changeMethods: [], // change methods modify state
                     sender: wallet.account(), // account object to initialize and sign transactions.
                 }
             )
 
-            marketplaceContract.get_sales_by_nft_contract_id({"nft_contract_id": "marketplace.uht-hockey.testnet"}).then(response => {
+            marketplaceContract.nft_tokens_for_owner({"account_id": "uht-hockey.testnet", "from_index": "0", "limit": 50}).then(response => {
                 console.log(response);
+                setCardsResponse(response);
             })
         })
     })
@@ -48,23 +50,43 @@ export default function BuyPlayers() {
             </Col>
         </Row>
         <Row>
-            <Col className='col-12 col-md-6 mb-3'>
+            {cardsResponse.map((card, index) => {
+                let near_cost;
+                switch (card.metadata.copies) {
+                    case 1000:
+                        near_cost = 0.5;
+                        break;
+                    case 100:
+                        near_cost = 5;
+                        break;
+                    case 10:
+                        near_cost = 50;
+                        break;
+                    case 1:
+                        near_cost = 500;
+                        break;
+                }
+                const dollar_cost = near_cost * 10;
+
+                return <Col className='col-12 col-md-6 mb-3'>
                 <Card>
                     <Card.Body>
                         <Row className='w-100 m-0'>
                             <Col className='text-center col-sm-12 col-md-auto'>
-                                <Image rounded src='/img/player.png' alt='player' height='185px' width='153px'/>
+                                <Image rounded src={card.metadata.media} alt='player'  width='153px'/>
                             </Col>
                             <Col className='text-center col-auto col-md-8 mt-3 p-0'>
                                 <Row className='justify-content-between'>
                                     <Col className='col-auto'>
-                                        <Card.Title>Kostiantyn Ostapenko</Card.Title>
+                                        <Card.Title>{card.metadata.title}</Card.Title>
                                     </Col>
                                     <Col className='col-auto'>
-                                        <DoublePrice dollar={100} near={10} />
+                                        <DoublePrice dollar={dollar_cost} near={near_cost} />
                                     </Col>
                                 </Row>
-                                <Card.Text className='text-start'>99/33</Card.Text>
+                                <Card.Text className='text-start'>
+                                    {card.metadata.description.split(',').slice(2).join('/')}
+                                </Card.Text>
                                 <Button className='text-center rounded-pill' variant="dark"
                                         onClick={()=>navigate('/marketplace/buy-players/3')}
                                 >Buy a player</Button>
@@ -73,6 +95,7 @@ export default function BuyPlayers() {
                     </Card.Body>
                 </Card>
             </Col>
+            })}
         </Row>
     </Container>
     </>
