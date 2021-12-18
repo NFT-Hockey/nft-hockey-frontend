@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCount } from './counterAPI';
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {fetchCount} from './counterAPI';
+import {signIn, signOut} from "../../app/near";
 
 const initialState = {
   value: 0,
@@ -19,6 +20,19 @@ export const incrementAsync = createAsyncThunk(
     return response.data;
   }
 );
+
+export const signInAsync = createAsyncThunk(
+    'auth/signIn',
+    async () => {
+      await signIn();
+    }
+)
+export const signOutAsync = createAsyncThunk(
+    'auth/signOut',
+    async () => {
+      await signOut();
+    }
+)
 
 export const counterSlice = createSlice({
   name: 'counter',
