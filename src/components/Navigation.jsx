@@ -39,7 +39,7 @@ const tabs = [
         icon: faStore,
     },
     {
-        route: ROUTES.ROOT,
+        route: ROUTES.GAME,
         icon: faHockeyPuck,
     },
     {
@@ -75,12 +75,12 @@ export default function Navigation() {
                 </NavLink>
                 <Nav className='ml-auto'>
                     <NavItem className="m-3">
-                        <NavLink to={ROUTES.ROOT} className='nav-link' activeClassName='active'>
+                        <NavLink to={ROUTES.GAME} className='nav-link' activeClassName='active'>
                             <FontAwesomeIcon icon={faHockeyPuck} size="2x" color='red' />
                         </NavLink>
                     </NavItem>
                     <NavItem className="m-3">
-                        <NavLink to={ROUTES.ROOT} className='nav-link' activeClassName='active'>
+                        <NavLink to={ROUTES.MARKETPLACE} className='nav-link' activeClassName='active'>
                             <FontAwesomeIcon icon={faStore} size="2x" />
                         </NavLink>
                     </NavItem>
@@ -106,7 +106,7 @@ export default function Navigation() {
                     </NavItem>
                     <NavItem>
                         <NavLink to='#' className='nav-link' activeClassName='active'>
-                            <Button variant='outline-secondary' onClick={()=>dispatch(signOutAsync())}>Sign out</Button>
+                            <Button size='sm' variant='outline-secondary' onClick={()=>dispatch(signOutAsync())}>Sign out</Button>
                         </NavLink>
                     </NavItem>
                 </Nav>

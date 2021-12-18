@@ -13,6 +13,9 @@ import SellPlayer from "./components/marketplace/SellPlayer";
 import PackView from "./components/marketplace/PackView";
 import {config} from "./app/near";
 import {connect, WalletConnection} from "near-api-js";
+import LeagueSelect from "./components/game/LeagueSelect";
+import GameLoading from "./components/game/GameLoading";
+import Score from "./components/game/Score";
 
 const AppStyled = styled.div`
   min-height: 100vh;
@@ -49,6 +52,11 @@ function App() {
                 <Route path={`${ROUTES.MARKETPLACE_BUY_PACKS}/:id`} element={<BuyPack />} />
                 <Route path={ROUTES.MARKETPLACE_SELL_PLAYERS} element={<SellPlayers />} />
                 <Route path={`${ROUTES.MARKETPLACE_SELL_PLAYERS}/:id`} element={<SellPlayer />} />
+
+                <Route path={ROUTES.GAME} element={<LeagueSelect />} />
+                <Route path={ROUTES.LEAGUE_SELECT} element={<LeagueSelect />} />
+                <Route path={ROUTES.LOADING} element={<GameLoading />} />
+                <Route path={ROUTES.SCORE} element={<Score />} />
               </Routes>
             </> : <>
           <Login />
