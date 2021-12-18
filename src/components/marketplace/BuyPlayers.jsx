@@ -1,13 +1,37 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Button, Card, Col, Container, FormControl, Image, InputGroup, Row} from "react-bootstrap";
 import MarketplacePageSelector from "./MarketplacePageSelector";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import DoublePrice from "./DoublePrice";
 import {useNavigate} from "react-router-dom";
+import {connect, WalletConnection} from "near-api-js";
+import {config} from "../../app/near";
+import * as nearAPI from "near-api-js";
 
 export default function BuyPlayers() {
     const navigate = useNavigate();
+
+    useEffect(()=> {
+        connect(config).then(near => {
+            let wallet = new WalletConnection(near);
+
+            const marketplaceContract = new nearAPI.Contract(
+                wallet.account(), // the account object that is connecting
+                "marketplace.uht-hockey.testnet",
+                {
+                    // name of contract you're connecting to
+                    viewMethods: ["get_sales_by_nft_contract_id"], // view methods do not change state but usually return a value
+                    changeMethods: [], // change methods modify state
+                    sender: wallet.account(), // account object to initialize and sign transactions.
+                }
+            )
+
+            marketplaceContract.get_sales_by_nft_contract_id({"nft_contract_id": "marketplace.uht-hockey.testnet"}).then(response => {
+                console.log(response);
+            })
+        })
+    })
 
     return <>
         <MarketplacePageSelector selectedPage='buy-players' />
