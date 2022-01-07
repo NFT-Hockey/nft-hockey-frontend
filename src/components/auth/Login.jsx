@@ -8,7 +8,7 @@ import {NavLink} from "react-router-dom";
 import styled from "styled-components";
 
 const StyledNavbar = styled(Navbar)`
-  border-bottom: solid 1px #EBEBEB;
+  background-color: rgba(0,0,0,0);
 `
 
 const NavbarBrandStyled = styled(Navbar.Brand)`
@@ -19,8 +19,8 @@ export default function Login() {
     const dispatch = useDispatch();
 
     return <>
-        <StyledNavbar className='navbar-expand-lg d-none d-md-block sticky-top' bg='dark' variant='dark'>
-            <Container fluid className="justify-content-center">
+        <StyledNavbar className='navbar-expand-lg d-none d-md-block sticky-top' variant='dark'>
+            <Container fluid className="justify-content-center mt-3">
                 <Navbar.Brand href={ROUTES.ROOT}>
                     <img src='/img/nft-hockey-logo.png' alt='logo' width="60"/>
                 </Navbar.Brand>

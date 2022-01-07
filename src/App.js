@@ -18,6 +18,9 @@ import GameLoading from "./components/game/GameLoading";
 import Score from "./components/game/Score";
 
 const AppStyled = styled.div`
+  background: rgb(127, 155, 249);
+  background: linear-gradient(0deg, rgba(226,232,254,1) 0%, rgba(92,125,244,1) 100%);
+  
   min-height: 100vh;
   
   // fix indent for bottom navbar
